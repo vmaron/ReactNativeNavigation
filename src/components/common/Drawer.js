@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {CardSection} from "./CardSection";
 import {Button} from "./Button";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default class Drawer extends Component {
 
@@ -9,7 +10,16 @@ export default class Drawer extends Component {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.topContainer}>
+        <View style={{padding: 5}}>
+          <Icon.Button
+            name='md-close'
+            size={26}
+            color="#4F8EF7"
+            backgroundColor="#FFF"
+            onPress={() => this.props.navigation.closeDrawer()}
+          />
+        </View>
+        <View style={styles.top}>
           <CardSection>
             <Text style={styles.header}>
               Drawer
@@ -21,11 +31,17 @@ export default class Drawer extends Component {
             </Button>
           </CardSection>
         </View>
-        <View style={styles.bottomContainer}>
+        <View style={styles.bottom}>
           <CardSection>
-            <Button onPress={() => this.props.navigation.closeDrawer()} >
-              Close Me
-            </Button>
+            <View style={{padding: 5}}>
+              <Icon.Button
+                name='md-power'
+                size={26}
+                color="#4F8EF7"
+                backgroundColor="#FFF"
+                onPress={() => this.props.navigation.closeDrawer()}
+              />
+            </View>
           </CardSection>
         </View>
       </View>
@@ -35,23 +51,24 @@ export default class Drawer extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#FFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   header: {
     fontSize: 20,
     marginVertical: 20,
   },
-  topContainer: {
+  container: {
+    flex:1,
+    backgroundColor: '#FFF',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+  top: {
     flex: 0.5,
     backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  bottomContainer: {
+  bottom: {
     flex: 0.5,
     backgroundColor: '#FFF',
     alignItems: 'center',

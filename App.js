@@ -86,14 +86,3 @@ const AppNavigator = createStackNavigator({
 
 
 export default createAppContainer(AppNavigator);
-
-
-/*const App: () => React$Node = () => {
-  return (
-    <>
-
-    </>
-  );
-};
-
-export default App;*/
